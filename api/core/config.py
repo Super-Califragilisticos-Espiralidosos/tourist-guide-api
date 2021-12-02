@@ -1,13 +1,15 @@
 from pydantic import BaseSettings
-from secrets import token_urlsafe
 
 class Settings(BaseSettings):
-    SECRET_KEY: str = token_urlsafe(32)
+    SECRET_KEY: str
     PROJECT_NAME: str
     ADMIN_EMAIL: str
     MONGODB_URL: str
     MONGODB_NAME: str
     MONGODB_COLLECTION_PLACES: str
+    MONGODB_COLLECTION_USERS: str
+    ALGORITHM: str
+    ACCESS_TOKEN_EXPIRE_MINUTES: int
 
     class Config:
         env_file = '.env'
